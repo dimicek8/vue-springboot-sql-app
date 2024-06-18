@@ -1,0 +1,27 @@
+<template>
+    <h1><strong>O nás</strong></h1><br><br>
+    <p>
+        Vítejte na stránce Inzeráty, vaší online platformě pro inzerci zboží a služeb. Naše webová aplikace je navržena tak, aby vám usnadnila prodej a nákup různých produktů a služeb. Ať už hledáte způsob, jak prodat nepotřebné věci, nebo chcete koupit něco speciálního, Inzeráty vám poskytují všechny potřebné nástroje k úspěšnému obchodování.
+    </p><br><br>
+    <h1><strong>Naše mise</strong></h1><br><br>
+    <p>
+        Naším cílem je vytvořit bezpečné a uživatelsky přívětivé prostředí, kde se lidé mohou snadno setkat a obchodovat. Chceme vám nabídnout jednoduchý a efektivní způsob, jak zveřejnit své inzeráty a rychle najít to, co hledáte.
+    </p><br><br>
+    <h1><strong>Co nabízíme</strong></h1><br><br>
+    <p>
+        <ol class="decimal">
+            <li><strong>Snadná inzerce:</strong> Naše platforma umožňuje rychlé a jednoduché vytváření inzerátů. Stačí vyplnit základní informace, přidat fotografie a váš inzerát je připraven k zobrazení.</li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ol>
+    </p>
+</template>
+
+<style scoped>
+.decimal {
+    list-style-type: decimal;
+    list-style-position:unset;
+    margin-left: -100px;
+}
+</style>
