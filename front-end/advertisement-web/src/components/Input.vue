@@ -2,42 +2,48 @@
     <v-sheet class="mx-auto -mt-20" width="300">
       <v-form ref="form" @submit.prevent="submitForm">
         <v-text-field
+        label="Jméno"
         type="text"
         v-model="ad.firstName"
-        label="Jméno"
         :rules="requiredRules"
         ></v-text-field>
+
         <v-text-field
+        label="Příjmení"
         type="text"
         v-model="ad.lastName"
-        label="Příjmení"
         :rules="requiredRules"
         ></v-text-field>
+
         <v-text-field 
+        label="Email"
         type="email"
         v-model="ad.email"
-        label="Email"
         :rules="emailRules"
         ></v-text-field>
+
         <v-text-field
+        label="Město"
         type="text"
         v-model="ad.city"
-        label="Město"
         :rules="requiredRules"
         ></v-text-field>
+
         <v-text-field
+        label="Cena"
         type="number"
         v-model="ad.price"
-        label="Cena"
         :rules="priceRules"
         min="0"
         ></v-text-field>
+
         <v-select
-        v-model="ad.currency"
         label="Měna"
+        v-model="ad.currency"
         :items="selectCurrency"
         required
         ></v-select>
+
         <v-file-input
         label="Vložte obrázek"
         chips
@@ -47,6 +53,7 @@
         ></v-file-input>
       </v-form>
     </v-sheet>
+
     <v-container fluid>
       <v-textarea
       v-model="ad.description"
@@ -65,8 +72,10 @@
   import { defineProps } from 'vue';
 
   const props = defineProps({
-    newAd: Object,
+    newAd: {
+    type: Object,
     required: true
+    }
   });
 
   const ad = props.newAd;
@@ -80,27 +89,9 @@
       rawFile: file
     };
   });
+  console.log("Files: ", ad.files);
 };
 
-  // import { ref } from 'vue';
-
-  // const newAd = ref({
-  //     firstName: "",
-  //     lastName: "",
-  //     email: "",
-  //     city: "",
-  //     price: "",
-  //     currency: "",
-  //     selectCurrency: "",
-  //     description: ""
-  //   });
-
-  // const firstName = ref("");
-  // const lastName = ref("");
-  // const email = ref("");
-  // const city = ref("");
-  // const price = ref("");
-  // const currency = ref("");
   const selectCurrency = ["Kč", "EUR", "USD"];
 
   const emailRules = [

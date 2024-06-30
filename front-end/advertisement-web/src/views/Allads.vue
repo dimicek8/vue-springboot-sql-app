@@ -6,10 +6,8 @@
             <p>{{ ad.city }}</p>
             <p>{{ ad.price }} {{ ad.currency }}</p>
             <p>{{ ad.description }}</p>
-            <div v-if="ad.files && ad.files.length > 0">
-                <div v-for="(file, index) in ad.files" :key="index">
-                    <img v-if="file.url" :src="file.url" alt="Obrázek" width="100"/>
-                </div>
+            <div v-if="ad.fileContent">
+                    <img :src="`data:image/jpeg;base64,${ad.fileContent}`" alt="Obrázek" width="100"/>
             </div>
         </div>
     </div>
@@ -18,9 +16,21 @@
 
 <script setup>
 
+import { ref, onMounted } from 'vue';
+import api from '../api';
 import { useAdStore } from '../stores/adStore';
 
 const adStore = useAdStore();
-const ads = adStore.ads;
+const ads = ref([]);
+
+onMounted(() => {
+    api.getAds()
+        .then(response => {
+            ads.value = response.data;
+        })
+        .catch(error => {
+            console.log("Došlo k chybě: ", error);
+        });
+});
 
 </script>

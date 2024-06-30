@@ -5,6 +5,7 @@
 
 <script setup>
     import { ref } from 'vue';
+    import api from '../api';
 
     import Button from '/src/components/Button.vue';
     import Input from '/src/components/Input.vue';
@@ -27,8 +28,15 @@
     });
 
     const handleSubmit = () => {
-      adStore.addAd({ ...newAd.value });
-      router.push('/allads');
-    }
+      console.log("New Ad: ", newAd.value);
+      api.postAd(newAd.value)
+          .then(Response => {
+            adStore.addAd(Response.data);
+            router.push('/allads');
+          })
+          .catch(error => {
+            console.log("Došlo k chybě: ", error);
+          })
+    };
 
   </script>
